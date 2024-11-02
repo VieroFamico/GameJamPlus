@@ -46,7 +46,7 @@ public class Player_Interact : MonoBehaviour
         {
             return false;
         }
-        // Get the collider bounds of the held object
+        /*// Get the collider bounds of the held object
         Collider heldCollider = currInteractable.GetComponent<Collider>();
         if (heldCollider == null) return false;
 
@@ -63,7 +63,47 @@ public class Player_Interact : MonoBehaviour
             Quaternion.identity,
             pushDistance,
             obstacleLayer
+        );*/
+
+        // Ensure the held object has a collider
+        Collider heldCollider = currInteractable.GetComponent<Collider>();
+        if (heldCollider == null) return false;
+
+        // Calculate the box size based on the held object's collider, scaled down a bit
+        Vector3 boxSize = new Vector3(
+            heldCollider.bounds.size.x * 0.5f - pushDistance, // Slightly smaller width to avoid edges
+            heldCollider.bounds.size.y * 0.5f, // Slightly smaller
+            heldCollider.bounds.size.z * 0.5f - pushDistance // Thin height to only check immediately in the front
         );
+
+        // Calculate the direction from the held object to the player
+        Vector3 directionToPlayer = (heldCollider.bounds.center - transform.position).normalized;
+
+        // Determine the maximum distance we want to check, which is just up to the held objectÅfs size
+        float maxCheckDistance = heldCollider.bounds.extents.z;
+
+        // Set the number of overlap checks to perform along the direction from the held object to the player
+        Vector3 checkPosition = heldCollider.bounds.center + (directionToPlayer * maxCheckDistance / 2);
+
+        // Perform the overlap check at this position, ignoring the heldCollider itself
+        Collider[] hits = Physics.OverlapBox(
+            checkPosition,
+            boxSize,
+            Quaternion.identity,
+            obstacleLayer
+        );
+
+        // If there are any hits, check if any of them are not the heldCollider
+        foreach (Collider hit in hits)
+        {
+            if (hit != heldCollider)
+            {
+                return true; // An obstacle other than the held object was detected
+            }
+        }
+
+        // No obstacles detected between the player and held object
+        return false;
     }
 
     public bool IsObstacleBetweenHeldObjectAndPlayer()
@@ -77,35 +117,36 @@ public class Player_Interact : MonoBehaviour
         Collider heldCollider = currInteractable.GetComponent<Collider>();
         if (heldCollider == null) return false;
 
-        // Calculate the box size based on the held object's collider
-        Vector3 boxSize = heldCollider.bounds.extents * 0.9f;
+        // Calculate the box size based on the held object's collider, scaled down a bit
+        Vector3 boxSize = new Vector3(
+            heldCollider.bounds.size.x * 0.5f - pushDistance, // Slightly smaller width to avoid edges
+            heldCollider.bounds.size.y * 0.5f, // Slightly smaller
+            heldCollider.bounds.size.z * 0.5f - pushDistance // Thin height to only check immediately in the back
+        );
 
-        // Calculate the direction and distance from the held object to the player
+        // Calculate the direction from the held object to the player
         Vector3 directionToPlayer = (transform.position - heldCollider.bounds.center).normalized;
-        float distanceToPlayer = Vector3.Distance(transform.position, heldCollider.bounds.center);
 
-        // Set the number of overlap checks to perform between the player and the held object
-        int overlapChecks = Mathf.CeilToInt(distanceToPlayer / boxSize.z);
-        Vector3 step = directionToPlayer * (distanceToPlayer / overlapChecks);
+        // Determine the maximum distance we want to check, which is just up to the held objectÅfs size
+        float maxCheckDistance = heldCollider.bounds.extents.z;
 
-        // Check along the path for obstacles
-        for (int i = 0; i <= overlapChecks; i++)
+        // Set the number of overlap checks to perform along the direction from the held object to the player
+        Vector3 checkPosition = heldCollider.bounds.center + directionToPlayer * maxCheckDistance / 2;
+
+        // Perform the overlap check at this position, ignoring the heldCollider itself
+        Collider[] hits = Physics.OverlapBox(
+            checkPosition,
+            boxSize,
+            Quaternion.identity,
+            obstacleLayer
+        );
+
+        // If there are any hits, check if any of them are not the heldCollider
+        foreach (Collider hit in hits)
         {
-            // Calculate the current position of the overlap box
-            Vector3 checkPosition = heldCollider.bounds.center + step * i;
-
-            // Check for any colliders in the obstacle layer within the box
-            Collider[] hits = Physics.OverlapBox(
-                checkPosition,
-                boxSize,
-                Quaternion.identity,
-                obstacleLayer
-            );
-
-            // If there are any hits, return true (obstacle detected)
-            if (hits.Length > 0)
+            if (hit != heldCollider)
             {
-                return true;
+                return true; // An obstacle other than the held object was detected
             }
         }
 
@@ -121,6 +162,8 @@ public class Player_Interact : MonoBehaviour
         {
             if (currInteractable)
             {
+                Player_Entity.instance.Player_Animation_Manager.StopGrabAnimation();
+
                 currInteractable.StopInteract(this);
                 currInteractable = null;
                 return;
@@ -188,7 +231,12 @@ public class Player_Interact : MonoBehaviour
             if (interactable != null)
             {
                 interactable.Interacted(this);
-                currInteractable = interactable;
+
+                if (interactable.GetComponent<DragAndPush_Interactable>())
+                {
+                    currInteractable = interactable;
+                    Player_Entity.instance.Player_Animation_Manager.StartGrabAnimation();
+                }
             }
         }
     }
@@ -225,9 +273,6 @@ public class Player_Interact : MonoBehaviour
             }
         }
     }
-
-
-
 
     void OnDrawGizmos()
     {
