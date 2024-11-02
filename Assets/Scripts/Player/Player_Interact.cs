@@ -77,24 +77,41 @@ public class Player_Interact : MonoBehaviour
         Collider heldCollider = currInteractable.GetComponent<Collider>();
         if (heldCollider == null) return false;
 
-        // Get the size of the held object for the boxcast
-        Vector3 boxSize = heldCollider.bounds.size;
-        Vector3 boxCenter = currInteractable.transform.position;
+        // Calculate the box size based on the held object's collider
+        Vector3 boxSize = heldCollider.bounds.extents * 0.9f;
 
-        // Calculate the direction from the held object towards the player
-        Vector3 directionToPlayer = (transform.position - boxCenter).normalized;
-        float distanceToPlayer = Vector3.Distance(transform.position, boxCenter);
+        // Calculate the direction and distance from the held object to the player
+        Vector3 directionToPlayer = (transform.position - heldCollider.bounds.center).normalized;
+        float distanceToPlayer = Vector3.Distance(transform.position, heldCollider.bounds.center);
 
-        // Perform the boxcast from the held object towards the player
-        return Physics.BoxCast(
-            boxCenter,
-            boxSize / 2,
-            directionToPlayer,
-            out RaycastHit hit,
-            Quaternion.identity,
-            distanceToPlayer - (distanceToPlayer / 2 + transform.localScale.z - 0.03f),
-            obstacleLayer
-        );
+        // Set the number of overlap checks to perform between the player and the held object
+        int overlapChecks = Mathf.CeilToInt(distanceToPlayer / boxSize.z);
+        Vector3 step = directionToPlayer * (distanceToPlayer / overlapChecks);
+
+        // Check along the path for obstacles
+        for (int i = 0; i <= overlapChecks; i++)
+        {
+            // Calculate the current position of the overlap box
+            Vector3 checkPosition = heldCollider.bounds.center + step * i;
+
+            // Check for any colliders in the obstacle layer within the box
+            Collider[] hits = Physics.OverlapBox(
+                checkPosition,
+                boxSize,
+                Quaternion.identity,
+                obstacleLayer
+            );
+
+            // If there are any hits, return true (obstacle detected)
+            if (hits.Length > 0)
+            {
+                return true;
+            }
+        }
+
+        // No obstacles detected between the player and held object
+        return false;
+
     }
 
 
