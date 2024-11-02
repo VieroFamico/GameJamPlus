@@ -7,6 +7,7 @@ public class Game_Manager : MonoBehaviour
     public static Game_Manager instance;
 
     public Level_Select_Manager level_Select_Manager;
+    public Loading_Scene_Manager loading_Scene_Manager;
     public Setting_Manager setting_Manager;
     public Audio_Manager audio_Manager;
 

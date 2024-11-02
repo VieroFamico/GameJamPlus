@@ -7,7 +7,7 @@ public class Player_Movement : MonoBehaviour
     private Rigidbody rigidbody;
     private BoxCollider boxCollider;
     private Player_Input playerInputActions;
-
+    public GameObject characterModel;
 
     [Header("3D Movement Variables")]
     public float moveSpeed3D;
@@ -305,13 +305,16 @@ public class Player_Movement : MonoBehaviour
     {
         Player_Entity.instance.Player_State_Manager.ChangePlayerState(Player_State_Manager.PlayerState.ThreeDimension);
 
+        rigidbody.useGravity = true;
+        LockRotation(false);
+
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
 
         rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
 
-        rigidbody.useGravity = true;
-        LockRotation(false);
+        characterModel.transform.localPosition = new Vector3(0, -0.5f, 0);
+        characterModel.transform.localEulerAngles = new Vector3(0, 90, 0);
     }
 
     public void Start2DMovement()
@@ -327,6 +330,9 @@ public class Player_Movement : MonoBehaviour
         rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
 
         transform.eulerAngles = new Vector3(0, 0, 0);
+
+        characterModel.transform.localPosition = new Vector3(0, 0, -0.5f);
+        characterModel.transform.localEulerAngles = new Vector3(90, 0, 0);
     }
 
     public void LockMovement(bool newState)
