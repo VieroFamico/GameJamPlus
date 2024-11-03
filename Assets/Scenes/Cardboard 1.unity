@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 56c9ed5ee739a324e8d8bdb9613f4890, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -7661,7 +7661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea63834e6a99624478d332f07e14f038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSceneIndex: 0
   maxLevel: 3
 --- !u!4 &2081860071167884218
 Transform:
@@ -7900,6 +7899,8 @@ MonoBehaviour:
   animator: {fileID: 6407844986220147527}
   loadInAudioClip: {fileID: 0}
   loadOutAudioClip: {fileID: 0}
+  targetSceneIndex: 0
+  maxLevel: 3
 --- !u!1 &2838704993943233825
 GameObject:
   m_ObjectHideFlags: 0
