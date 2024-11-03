@@ -35,6 +35,7 @@ public class DragAndPush_Interactable : Base_Interactable
 
     public void Destroyed()
     {
+        Player_Entity.instance.Player_Animation_Manager.StopGrabAnimation();
         StopInteract(Player_Entity.instance.Player_Interact);
 
         Audio_Manager.instance.PlaySFXOneShot(destroyAudioClip);

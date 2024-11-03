@@ -4238,6 +4238,11 @@ PrefabInstance:
       propertyPath: m_Maskable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1456172727818165594, guid: 9567e8b56e9c77b4296a6000d2911c08,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1509319281374536657, guid: 9567e8b56e9c77b4296a6000d2911c08,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4540,6 +4545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325027431602487871, guid: 9567e8b56e9c77b4296a6000d2911c08,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8563560712961986753, guid: 9567e8b56e9c77b4296a6000d2911c08,
         type: 3}
