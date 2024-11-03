@@ -26,15 +26,12 @@ public class Loading_Scene_Manager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        SceneManager.activeSceneChanged += HandleSceneChange;
-
-
         maxLevel = Game_Manager.instance.maxLevel;
     }
 
     public void LoadScene(int targetScene)
     {
-        if (targetScene >= maxLevel)
+        if (targetScene > maxLevel)
         {
             Debug.Log("Trying to load an out of index scene");
             return;
@@ -70,6 +67,22 @@ public class Loading_Scene_Manager : MonoBehaviour
         //LoadOut();
     }
 
+    public void ExitGame()
+    {
+
+    }
+
+    private IEnumerator ExitGameCoroutine()
+    {
+        // Trigger the LoadIn animation
+        LoadIn();
+
+        // Wait for the animation to play out (adjust based on animation duration)
+        yield return new WaitForSeconds(1.3f); // Adjust if needed
+
+        Application.Quit();
+    }
+
     public void LoadIn()
     {
         if (animator != null)
@@ -87,9 +100,4 @@ public class Loading_Scene_Manager : MonoBehaviour
             Audio_Manager.instance.PlaySFXOneShot(loadOutAudioClip);
         }
     }
-    private void HandleSceneChange(Scene OldScene, Scene NewScene)
-    {
-        //LoadOut();
-    }
-
 }
