@@ -37,6 +37,8 @@ public class Game_Manager : MonoBehaviour
         unlockedLevel = PlayerPrefs.GetInt(levelUnlockedParameter, 1);
 
         currentLevel = 0; // 0 = Main Menu Stage
+
+        Debug.Log(unlockedLevel);
     }
 
     // Update is called once per frame

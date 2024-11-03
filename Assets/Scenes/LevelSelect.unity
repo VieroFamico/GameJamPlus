@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level_Scene_Index: 1
-  door: {fileID: 0}
+  door: {fileID: 2013468016}
 --- !u!1 &1324088397
 GameObject:
   m_ObjectHideFlags: 0
