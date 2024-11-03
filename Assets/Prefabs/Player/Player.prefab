@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f60ff267e075e4587038a3a0fff58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runParticleSystem: {fileID: 0}
 --- !u!1 &541823652448283288
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +387,7 @@ MonoBehaviour:
   Player_Interact: {fileID: 767959327736002272}
   Player_State_Manager: {fileID: 1997430264394989283}
   Player_Animation_Manager: {fileID: 0}
+  playerDeathAudioClip: {fileID: 0}
 --- !u!114 &1997430264394989283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterModel: {fileID: 477164261268642571}
   moveSpeed3D: 3
-  rotateSpeed: 1
+  rotateSpeed: 2
   friction: 5
   moveSpeed2D: 5
   jumpForce: 7

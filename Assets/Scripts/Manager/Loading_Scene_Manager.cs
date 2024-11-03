@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -50,7 +51,9 @@ public class Loading_Scene_Manager : MonoBehaviour
         // Wait for the animation to play out (adjust based on animation duration)
         yield return new WaitForSeconds(1.3f); // Adjust if needed
 
+
         LoadOut();
+        yield return null;
         Time.timeScale = 0f;
         // Load the target scene
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(targetScene);
@@ -69,7 +72,7 @@ public class Loading_Scene_Manager : MonoBehaviour
 
     public void ExitGame()
     {
-
+        StartCoroutine(ExitGameCoroutine());
     }
 
     private IEnumerator ExitGameCoroutine()
