@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac460743823dc444bbcd22a3dfc0a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactedSound: {fileID: 8300000, guid: 9d66c65472ca6154ab1202e0e4aff7f1, type: 3}
   interactDelay: 0.5
 --- !u!1001 &3726447392501872401
 PrefabInstance:
