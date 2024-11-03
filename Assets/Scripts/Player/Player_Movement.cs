@@ -136,7 +136,10 @@ public class Player_Movement : MonoBehaviour
                 return;
             }
 
-            rigidbody.MovePosition(transform.position + (speed * Time.deltaTime * totalMove));
+            if (!IsObstacleInDirection(totalMove.normalized))
+            {
+                rigidbody.MovePosition(transform.position + (speed * Time.deltaTime * totalMove));
+            }
 
             //lastMoveDir = moveDir;
             return;
@@ -354,7 +357,7 @@ public class Player_Movement : MonoBehaviour
 
     #region GetInput
 
-    private Vector2 MovementInput()
+    public Vector2 MovementInput()
     {
         return playerInputActions.Player.Move.ReadValue<Vector2>();
     }

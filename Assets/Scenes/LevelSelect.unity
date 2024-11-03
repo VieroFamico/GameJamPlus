@@ -1732,7 +1732,7 @@ Transform:
   m_GameObject: {fileID: 1640782004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.58, y: 0.5, z: 2.88}
+  m_LocalPosition: {x: 4.078, y: 0.5, z: 2.469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2064,11 +2064,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4123633732819727134, guid: 27e20840e70787649a6364352fba6a83,
-        type: 3}
-      propertyPath: m_Name
-      value: BoxModel
-      objectReference: {fileID: 0}
     - target: {fileID: 7960898324256651622, guid: 27e20840e70787649a6364352fba6a83,
         type: 3}
       propertyPath: m_Name
@@ -2155,13 +2150,13 @@ SceneRoots:
   - {fileID: 1478859111}
   - {fileID: 435821589972676862}
   - {fileID: 3727727405889748755}
+  - {fileID: 7792821588107889324}
   - {fileID: 806022364}
   - {fileID: 1094994500}
   - {fileID: 1640782010}
   - {fileID: 1324088403}
   - {fileID: 1920934619}
   - {fileID: 995995677}
-  - {fileID: 7792821588107889324}
   - {fileID: 683422296}
   - {fileID: 1305281252}
   - {fileID: 668205451}
