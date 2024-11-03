@@ -134,6 +134,8 @@ GameObject:
   m_Component:
   - component: {fileID: 31537610}
   - component: {fileID: 31537611}
+  - component: {fileID: 31537613}
+  - component: {fileID: 31537612}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -172,6 +174,39 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0578718, y: 0.94212866, z: 2.4901886}
+  m_Center: {x: -2.8646355, y: -0.6510534, z: -1.555294}
+--- !u!114 &31537612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31537609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea0d67271338654081291b0f1f3e77a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &31537613
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31537609}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3182,7 +3217,8 @@ MonoBehaviour:
   Player_Interact: {fileID: 9200684110301281247}
   Player_State_Manager: {fileID: 7980237518648964060}
   Player_Animation_Manager: {fileID: 344034261580954391}
-  playerDeathAudioClip: {fileID: 0}
+  playerDeathAudioClip: {fileID: 8300000, guid: f9c0bfe16d08e9942b2d3faeabc3db6b,
+    type: 3}
 --- !u!1 &7028573693870085896
 GameObject:
   m_ObjectHideFlags: 0
