@@ -69,7 +69,7 @@ public class Loading_Scene_Manager : MonoBehaviour
 
     public void ExitGame()
     {
-
+        StartCoroutine(ExitGameCoroutine());
     }
 
     private IEnumerator ExitGameCoroutine()
