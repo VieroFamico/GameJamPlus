@@ -33,6 +33,11 @@ public class Player_Interact : MonoBehaviour
         playerInputActions.Player.Interact.performed += x => Interact();
     }
 
+    private void OnDisable()
+    {
+        playerInputActions.Player.Disable();
+    }
+
     // Update is called once per frame
     void Update()
     {

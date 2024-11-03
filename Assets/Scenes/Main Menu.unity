@@ -1181,10 +1181,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2631895172868038260, guid: 0baabb21ef785d04796d51d21d2f8c2a,
+        type: 3}
+      propertyPath: loadInAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eac13c987388f0545b4c9a84138eaf36, type: 3}
+    - target: {fileID: 2631895172868038260, guid: 0baabb21ef785d04796d51d21d2f8c2a,
+        type: 3}
+      propertyPath: loadOutAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eac13c987388f0545b4c9a84138eaf36, type: 3}
     - target: {fileID: 3061504752262827519, guid: 0baabb21ef785d04796d51d21d2f8c2a,
         type: 3}
       propertyPath: m_Name
       value: Playable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324665723318912565, guid: 0baabb21ef785d04796d51d21d2f8c2a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6946867545719174217, guid: 0baabb21ef785d04796d51d21d2f8c2a,
         type: 3}

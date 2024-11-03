@@ -7,7 +7,8 @@ public class Loading_Scene_Manager : MonoBehaviour
     public static Loading_Scene_Manager Instance;
 
     public Animator animator;
-
+    public AudioClip loadInAudioClip;
+    public AudioClip loadOutAudioClip;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class Loading_Scene_Manager : MonoBehaviour
         if (animator != null)
         {
             animator.SetTrigger("LoadIn");
+            Audio_Manager.instance.PlaySFXOneShot(loadInAudioClip);
         }
     }
 
@@ -35,7 +37,7 @@ public class Loading_Scene_Manager : MonoBehaviour
         if (animator != null)
         {
             animator.SetTrigger("LoadOut");
+            Audio_Manager.instance.PlaySFXOneShot(loadOutAudioClip);
         }
     }
-
 }
