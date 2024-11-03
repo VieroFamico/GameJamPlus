@@ -37,9 +37,9 @@ public class DragAndPush_Interactable : Base_Interactable
     {
         Audio_Manager.instance.PlaySFXOneShot(destroyAudioClip);
 
-        Instantiate(destroyedParticleSystem, transform.position, Quaternion.identity);
+        GameObject spawnedParticleSystem = Instantiate(destroyedParticleSystem, transform.position, Quaternion.identity);
 
-        Destroy(destroyedParticleSystem, 5f);
+        Destroy(spawnedParticleSystem, 0.5f);
         Destroy(gameObject);
     }
 
