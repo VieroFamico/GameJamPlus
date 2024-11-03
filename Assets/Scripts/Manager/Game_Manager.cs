@@ -42,4 +42,10 @@ public class Game_Manager : MonoBehaviour
     {
         
     }
+
+
+    public void ChangeCurrLevel(int level)
+    {
+        currentLevel = level;
+    }
 }

@@ -47,10 +47,14 @@ public class Player_State_Manager : MonoBehaviour
         if(_state == PlayerState.ThreeDimension)
         {
             Camera3D();
+
+            Player_Entity.instance.Player_Animation_Manager.GoTo3D();
         }
         else
         {
             Camera2D();
+
+            Player_Entity.instance.Player_Animation_Manager.GoTo2D();
         }
 
     }
