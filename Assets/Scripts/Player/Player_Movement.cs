@@ -169,28 +169,35 @@ public class Player_Movement : MonoBehaviour
 
         // Handle horizontal movement (z-axis is the 2D vertical axis here)
         Vector3 movement = Vector3.zero;
-        if (MovementInput().x < 0)
+        if (MovementInput().x < -0.1f)
         {
             movement += Vector3.left; // Move left (relative to 2D)
         }
-        else if (MovementInput().x > 0)
+        else if (MovementInput().x > 0.1f)
         {
             movement += Vector3.right; // Move right (relative to 2D)
         }
-
-        /*if (MovementInput().y > 0)
+        else
         {
-            movement += Vector3.forward; // Move "up" in the 2D view
+            movement += Vector3.zero;
         }
-        else if (MovementInput().y < 0)
-        {
-            movement += Vector3.back; // Move "down" in the 2D view
-        }*/
 
         Vector3 gravDir = new Vector3(0, 0, -5f);
 
-        Debug.Log(IsObstacleInDirection(movement.normalized));
-        Debug.Log(isGrounded);
+        // Apply movement only if there is no obstacle in the desired direction
+        if (movement.magnitude > 0.1f && !IsObstacleInDirection(movement.normalized))
+        {
+            Debug.Log(movement);
+            //rigidbody.AddForce(movement.normalized * moveSpeed2D);
+
+            float tempZ = rigidbody.velocity.z;
+
+            rigidbody.velocity = (movement.normalized * moveSpeed2D) + new Vector3(0, 0, tempZ);
+        }
+        else if(movement.magnitude <= 0.1f && rigidbody.velocity.magnitude > 0.1f)
+        { 
+            rigidbody.velocity -= new Vector3(rigidbody.velocity.x, 0, 0) * friction2D;
+        }
 
         if (!isGrounded)
         {
@@ -198,20 +205,8 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
-            rigidbody.velocity = new Vector3 (rigidbody.velocity.x, 0f, 0f);
+            rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, 0f);
         }
-
-        // Apply movement only if there is no obstacle in the desired direction
-        if (movement != Vector3.zero && !IsObstacleInDirection(movement.normalized) && rigidbody.velocity.sqrMagnitude <= moveSpeed2D)
-        {
-            Debug.Log(movement);
-            rigidbody.AddForce(movement.normalized * moveSpeed2D);
-        }
-        else if(movement == Vector3.zero && rigidbody.velocity.magnitude > 0.1f)
-        { 
-            rigidbody.velocity -= new Vector3(rigidbody.velocity.x, 0, 0) * friction2D;
-        }
-
     }
 
     private void Jump2D()
