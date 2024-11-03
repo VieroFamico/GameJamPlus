@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitGame : MonoBehaviour
 {
@@ -14,5 +15,13 @@ public class ExitGame : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Player_Entity>())
+        {
+            Game_Manager.instance.loading_Scene_Manager.ExitGame();
+        }
     }
 }
