@@ -15,6 +15,9 @@ public class DragAndPush_Interactable : Base_Interactable
 
     public List<HoldPosition> holdPositions;
 
+    public GameObject destroyedParticleSystem;
+    public AudioClip destroyAudioClip;
+
     public bool isHeld = false;
 
 
@@ -28,6 +31,16 @@ public class DragAndPush_Interactable : Base_Interactable
     void Update()
     {
         
+    }
+
+    public void Destroyed()
+    {
+        Audio_Manager.instance.PlaySFXOneShot(destroyAudioClip);
+
+        Instantiate(destroyedParticleSystem, transform.position, Quaternion.identity);
+
+        Destroy(destroyedParticleSystem, 5f);
+        Destroy(gameObject);
     }
 
     public override void Interacted(Player_Interact player_Interact)
