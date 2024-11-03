@@ -52,9 +52,6 @@ public class Player_Movement : MonoBehaviour
                 TwoDimensional_Movement();
             }
         }
-
-        
-        
     }
 
     private void FixedUpdate()

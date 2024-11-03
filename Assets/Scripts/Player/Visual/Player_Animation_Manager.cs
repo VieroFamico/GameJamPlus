@@ -10,6 +10,8 @@ public class Player_Animation_Manager : MonoBehaviour
     [Header("Dependencies")]
     public ParticleSystem runParticleSystem;
 
+
+    private float lastDir;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +26,12 @@ public class Player_Animation_Manager : MonoBehaviour
         if (Player_Entity.instance.Player_State_Manager.GetState() == Player_State_Manager.PlayerState.ThreeDimension)
         {
             Animation3DMovement();
+            Debug.Log("A");
         }
         else
         {
             Animation2DMovement();
+            Debug.Log("B");
         }
     }
 
@@ -45,7 +49,26 @@ public class Player_Animation_Manager : MonoBehaviour
 
     private void Animation2DMovement()
     {
+        if (Mathf.Abs(player_Movement.MovementInput().x) >= 0.1f)
+        {
+            animator.SetFloat("2DMove", player_Movement.MovementInput().x);
 
+            lastDir = 1 * player_Movement.MovementInput().x;
+        }
+        else
+        {
+            animator.SetFloat("2DMove", lastDir);
+        }
+    }
+
+    public void GoTo3D()
+    {
+        animator.SetFloat("2DMove", 0f);
+    }
+
+    public void GoTo2D()
+    {
+        animator.SetBool("Walking", false);
     }
 
     public void StartGrabAnimation()
