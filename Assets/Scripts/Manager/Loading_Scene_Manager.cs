@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Loading_Scene_Manager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Loading_Scene_Manager : MonoBehaviour
     public AudioClip loadInAudioClip;
     public AudioClip loadOutAudioClip;
 
+    public int targetSceneIndex; // Scene to load when triggered
+
+    public int maxLevel = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,49 @@ public class Loading_Scene_Manager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        SceneManager.activeSceneChanged += HandleSceneChange;
+
+
+        maxLevel = Game_Manager.instance.maxLevel;
+    }
+
+    public void LoadScene(int targetScene)
+    {
+        if (targetScene >= maxLevel)
+        {
+            Debug.Log("Trying to load an out of index scene");
+            return;
+        }
+
+        Game_Manager.instance.ChangeCurrLevel(targetScene);
+
+        StartCoroutine(LoadSceneCoroutine(targetScene));
+    }
+
+    private IEnumerator LoadSceneCoroutine(int targetScene)
+    {
+        // Trigger the LoadIn animation
+        LoadIn();
+
+        // Wait for the animation to play out (adjust based on animation duration)
+        yield return new WaitForSeconds(1.3f); // Adjust if needed
+
+        LoadOut();
+        Time.timeScale = 0f;
+        // Load the target scene
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(targetScene);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        // Wait one frame after the scene loads
+        Time.timeScale = 1f;
+
+        //LoadOut();
+        // Trigger the LoadOut animation after the scene loads
+        //LoadOut();
     }
 
     public void LoadIn()
@@ -40,4 +87,9 @@ public class Loading_Scene_Manager : MonoBehaviour
             Audio_Manager.instance.PlaySFXOneShot(loadOutAudioClip);
         }
     }
+    private void HandleSceneChange(Scene OldScene, Scene NewScene)
+    {
+        //LoadOut();
+    }
+
 }

@@ -7,16 +7,18 @@ public class LevelSelect_Object : MonoBehaviour
     public int level_Scene_Index;
 
     public GameObject unlockedVisualGameObject;
+
+    private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        timer = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
     }
 
     public void Unlocked(bool state)
@@ -33,6 +35,12 @@ public class LevelSelect_Object : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Game_Manager.instance.level_Select_Manager.LoadScene(level_Scene_Index);
+        if(timer < 3f)
+        {
+            return;
+        }
+
+        Game_Manager.instance.loading_Scene_Manager.LoadScene(level_Scene_Index);
+        timer = 0f;
     }
 }

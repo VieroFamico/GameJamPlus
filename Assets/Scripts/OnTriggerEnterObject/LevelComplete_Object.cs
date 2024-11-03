@@ -26,12 +26,12 @@ public class LevelComplete_Object : MonoBehaviour
 
             if(Game_Manager.instance.CurrentLevel() < Game_Manager.instance.maxLevel)
             {
-                Game_Manager.instance.level_Select_Manager.LoadScene(Game_Manager.instance.CurrentLevel() + 1);
+                Game_Manager.instance.loading_Scene_Manager.LoadScene(Game_Manager.instance.CurrentLevel() + 1);
                 return;
             }
             else
             {
-                Game_Manager.instance.level_Select_Manager.LoadScene(0);
+                Game_Manager.instance.loading_Scene_Manager.LoadScene(0);
             }
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Entity : MonoBehaviour
 {
@@ -41,6 +42,6 @@ public class Player_Entity : MonoBehaviour
     {
         Audio_Manager.instance.PlaySFXOneShot(playerDeathAudioClip);
 
-        Game_Manager.instance.level_Select_Manager.LoadScene(Game_Manager.instance.CurrentLevel());
+        Game_Manager.instance.loading_Scene_Manager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
