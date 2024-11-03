@@ -331,6 +331,8 @@ public class Player_Movement : MonoBehaviour
 
         transform.eulerAngles = new Vector3(0, 0, 0);
 
+        transform.transform.localPosition = transform.transform.localPosition + new Vector3(0, 0.1f, 0);
+
         characterModel.transform.localPosition = new Vector3(0, 0, -0.5f);
         characterModel.transform.localEulerAngles = new Vector3(90, 0, 0);
     }
