@@ -1641,7 +1641,7 @@ GameObject:
   - component: {fileID: 871288610}
   - component: {fileID: 871288609}
   - component: {fileID: 871288611}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Setting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2378,6 +2378,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3973107660126017756, guid: b7f43df944ca860438846c89e71bb3e4,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3973107660126017756, guid: b7f43df944ca860438846c89e71bb3e4,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2403,8 +2408,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b7f43df944ca860438846c89e71bb3e4,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b7f43df944ca860438846c89e71bb3e4,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471496338278676438, guid: b7f43df944ca860438846c89e71bb3e4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6471496338278676438, guid: b7f43df944ca860438846c89e71bb3e4,
         type: 3}
