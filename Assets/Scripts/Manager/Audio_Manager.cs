@@ -10,7 +10,9 @@ public class Audio_Manager : MonoBehaviour
 
     public AudioSource sfxAudioSource;
     public AudioSource bgmAudioSource;
-    
+
+    public List<AudioSource> continousAudioSourceList;
+
     private void Awake()
     {
         if (instance == null)
@@ -25,15 +27,40 @@ public class Audio_Manager : MonoBehaviour
 
     private void Start()
     {
-        
 
-        
     }
 
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFXOneShot(AudioClip clip)
     {
         sfxAudioSource.PlayOneShot(clip);
     }
+
+    public AudioSource PlaySFX(AudioClip clip)
+    {
+        AudioSource newAudioSource = new AudioSource();
+
+        newAudioSource.clip = clip;
+        newAudioSource.Play();
+
+        continousAudioSourceList.Add(newAudioSource);
+
+        Destroy(newAudioSource, clip.length);
+
+        return newAudioSource;
+    }
+
+    public void StopSFX(AudioSource audioSourceToStop)
+    {
+        if (continousAudioSourceList.Contains(audioSourceToStop))
+        {
+            AudioSource audioSource = continousAudioSourceList.Find((x) => x = audioSourceToStop);
+
+            audioSource.Stop();
+
+            Destroy(audioSource);
+        }
+    }
+
     public void PlayBGM(AudioClip clip)
     {
         bgmAudioSource.Stop();

@@ -17,7 +17,6 @@ public class Player_Interact : MonoBehaviour
     public LayerMask interactable2DLayerMask;
     public float interactionRange2D = 0.5f;
 
-
     [Header("HeldObject")]
     public float pushDistance;
     public LayerMask obstacleLayer;
