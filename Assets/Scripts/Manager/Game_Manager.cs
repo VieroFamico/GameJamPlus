@@ -71,6 +71,8 @@ public class Game_Manager : MonoBehaviour
         }
 
         PlayerPrefs.SetInt(levelUnlockedParameter, newLevel);
+
+        unlockedLevel = PlayerPrefs.GetInt(levelUnlockedParameter, newLevel);
     }
 
     #region Unlocked Level
