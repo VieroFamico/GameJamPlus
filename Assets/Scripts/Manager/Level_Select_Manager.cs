@@ -34,7 +34,7 @@ public class Level_Select_Manager : MonoBehaviour
         Loading_Scene_Manager.Instance.LoadIn();
 
         // Wait for the animation to play out (adjust based on animation duration)
-        yield return new WaitForSeconds(1f); // Adjust if needed
+        yield return new WaitForSeconds(1.5f); // Adjust if needed
 
         // Load the target scene
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(targetScene);
@@ -42,8 +42,6 @@ public class Level_Select_Manager : MonoBehaviour
         {
             yield return null;
         }
-
-        yield return new WaitForSeconds(1f); // Adjust if needed
         // Trigger the LoadOut animation after the scene loads
         Loading_Scene_Manager.Instance.LoadOut();
     }
