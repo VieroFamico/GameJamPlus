@@ -139,11 +139,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4498080afe2285f4b911168699603780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level_Select_Manager: {fileID: 0}
-  loading_Scene_Manager: {fileID: 0}
-  setting_Manager: {fileID: 0}
-  audio_Manager: {fileID: 0}
+  level_Select_Manager: {fileID: 2068261367974080804}
+  loading_Scene_Manager: {fileID: 2631895172868038260}
+  setting_Manager: {fileID: 3176658203303147438}
+  audio_Manager: {fileID: 1376160921968934313}
   levelUnlockedParameter: LevelUnlocked
+  maxLevel: 3
 --- !u!1 &827516525163894792
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneIndex: 0
+  maxLevel: 3
 --- !u!1 &1808241160676573292
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,13 +882,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1447085273093787002}
+  - component: {fileID: 3176658203303147438}
   m_Layer: 0
   m_Name: Setting_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1447085273093787002
 Transform:
   m_ObjectHideFlags: 0
@@ -902,6 +905,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7572294748287229186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3176658203303147438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107834588109008367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36fa5f215bcf49d44a8800765baf7f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingPanel: {fileID: 0}
+  closeSetting: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  bgmSlider: {fileID: 0}
+  audioMixer: {fileID: 0}
+  sfxVolumeParameter: SFXVolume
+  bgmVolumeParameter: BGMVolume
 --- !u!1 &2182126443099536124
 GameObject:
   m_ObjectHideFlags: 0

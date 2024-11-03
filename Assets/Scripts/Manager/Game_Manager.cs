@@ -13,6 +13,8 @@ public class Game_Manager : MonoBehaviour
 
     public string levelUnlockedParameter = "LevelUnlocked";
 
+    public int maxLevel = 3;
+
     private int currentLevel;
     private int unlockedLevel;
 
@@ -63,4 +65,13 @@ public class Game_Manager : MonoBehaviour
 
         PlayerPrefs.SetInt(levelUnlockedParameter, newLevel);
     }
+
+    #region Unlocked Level
+
+    public int UnlockedLevel()
+    {
+        return unlockedLevel;
+    }
+
+    #endregion
 }

@@ -12,6 +12,15 @@ public class LevelIndex_Assigner : MonoBehaviour
         foreach (var levelSelect in levelSelect_Objects)
         {
             levelSelect.level_Scene_Index = i;
+
+            if(i <= Game_Manager.instance.UnlockedLevel())
+            {
+                levelSelect.Unlocked(true);
+            }
+            else
+            {
+                levelSelect.Unlocked(false);
+            }
             i += 1;
         }
     }

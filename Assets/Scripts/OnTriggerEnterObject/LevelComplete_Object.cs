@@ -18,6 +18,11 @@ public class LevelComplete_Object : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        UnlockNewLevel();
+
+    }
     public void UnlockNewLevel()
     {
         Game_Manager.instance.SaveNewUnlockedLevel(level + 1);

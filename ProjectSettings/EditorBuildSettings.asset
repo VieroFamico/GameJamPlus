@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Cardboard.unity
+    guid: ce5be5301947760429f1f5e48d484bea
+  - enabled: 1
+    path: Assets/Scenes/Cardboard 1.unity
+    guid: 6c1dbaf38a2797b4da07388f93f9b635
+  - enabled: 1
+    path: Assets/Scenes/Cardboard 2.unity
+    guid: af4f62b581f395d49aa93adec90a9d8e
   m_configObjects: {}
