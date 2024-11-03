@@ -5,7 +5,8 @@ using UnityEngine;
 public class LevelComplete_Object : MonoBehaviour
 {
     public int level;
-
+    public AudioClip nextLevelAudioClip;
+    public GameObject nextLevelVFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,9 @@ public class LevelComplete_Object : MonoBehaviour
         if (other.GetComponent<Player_Entity>())
         {
             UnlockNewLevel();
+
+            Instantiate(nextLevelVFX, other.transform.position, Quaternion.identity);
+            Audio_Manager.instance.PlaySFXOneShot(nextLevelAudioClip);
 
             if(Game_Manager.instance.CurrentLevel() < Game_Manager.instance.maxLevel)
             {

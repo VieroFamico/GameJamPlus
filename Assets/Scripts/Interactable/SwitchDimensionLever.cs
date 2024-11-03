@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchDimensionLever : Base_Interactable
 {
-
+    public AudioClip interactedSound;
     public float interactDelay = 0.5f;
     private float timer;
     // Start is called before the first frame update
@@ -28,6 +28,7 @@ public class SwitchDimensionLever : Base_Interactable
 
         base.Interacted(player_Interact);
 
+        Audio_Manager.instance.PlaySFXOneShot(interactedSound);
 
         if(Player_Entity.instance.Player_State_Manager.GetState() == Player_State_Manager.PlayerState.ThreeDimension)
         {

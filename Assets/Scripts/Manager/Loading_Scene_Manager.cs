@@ -27,6 +27,8 @@ public class Loading_Scene_Manager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        Audio_Manager.instance.PlaySFXOneShot(loadInAudioClip);
+
         maxLevel = Game_Manager.instance.maxLevel;
     }
 

@@ -10,7 +10,6 @@ public class Player_Animation_Manager : MonoBehaviour
     [Header("Dependencies")]
     public ParticleSystem runParticleSystem;
 
-
     private float lastDir;
     // Start is called before the first frame update
     void Start()
@@ -40,10 +39,12 @@ public class Player_Animation_Manager : MonoBehaviour
         if(Mathf.Abs(player_Movement.MovementInput().y) >= 0.1f)
         {
             animator.SetBool("Walking", true);
+            runParticleSystem.Play();
         }
         else
         {
             animator.SetBool("Walking", false);
+            runParticleSystem.Stop();
         }
     }
 
@@ -54,10 +55,13 @@ public class Player_Animation_Manager : MonoBehaviour
             animator.SetFloat("2DMove", player_Movement.MovementInput().x);
 
             lastDir = 1 * player_Movement.MovementInput().x;
+
+            runParticleSystem.Play();
         }
         else
         {
             animator.SetFloat("2DMove", lastDir);
+            runParticleSystem.Stop();
         }
     }
 
