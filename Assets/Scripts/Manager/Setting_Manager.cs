@@ -39,6 +39,8 @@ public class Setting_Manager : MonoBehaviour
 
     public void OpenSetting()
     {
+        Cursor.visible = true;
+
         settingPanel.SetActive(true);
         isInSetting = true;
 
@@ -50,6 +52,8 @@ public class Setting_Manager : MonoBehaviour
 
     private void CloseSetting()
     {
+        Cursor.visible = false;
+
         settingPanel.SetActive(false);
         isInSetting = false;
 

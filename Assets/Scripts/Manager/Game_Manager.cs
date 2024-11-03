@@ -29,14 +29,16 @@ public class Game_Manager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        unlockedLevel = PlayerPrefs.GetInt(levelUnlockedParameter, 1);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        unlockedLevel = PlayerPrefs.GetInt(levelUnlockedParameter, 1);
-
         currentLevel = 0; // 0 = Main Menu Stage
+
+        Cursor.visible = false;
 
         Debug.Log(unlockedLevel);
     }
@@ -60,7 +62,7 @@ public class Game_Manager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        
+        PlayerPrefs.Save();
     }
 
     public void SaveNewUnlockedLevel(int newLevel)

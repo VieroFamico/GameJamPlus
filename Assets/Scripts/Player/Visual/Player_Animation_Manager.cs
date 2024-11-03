@@ -25,12 +25,10 @@ public class Player_Animation_Manager : MonoBehaviour
         if (Player_Entity.instance.Player_State_Manager.GetState() == Player_State_Manager.PlayerState.ThreeDimension)
         {
             Animation3DMovement();
-            Debug.Log("A");
         }
         else
         {
             Animation2DMovement();
-            Debug.Log("B");
         }
     }
 
