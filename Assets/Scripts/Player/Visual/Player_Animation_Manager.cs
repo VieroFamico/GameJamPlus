@@ -83,6 +83,15 @@ public class Player_Animation_Manager : MonoBehaviour
             animator.SetFloat("2DMove", lastDir);
             runParticleSystem.Stop();
         }
+
+        if (player_Movement.MovementInput().x >= 0.1f)
+        {
+            runParticleSystem.transform.localEulerAngles = new Vector3(-90, 0, 90);
+        }
+        else if (player_Movement.MovementInput().x <= -0.1f)
+        {
+            runParticleSystem.transform.localEulerAngles = new Vector3(-90, 0, -90);
+        }
     }
 
     public void GoTo3D()
@@ -94,7 +103,7 @@ public class Player_Animation_Manager : MonoBehaviour
     {
         animator.SetBool("Walking", false);
 
-        runParticleSystem.transform.localEulerAngles = new Vector3(-90, 0, 0);
+        runParticleSystem.transform.localEulerAngles = new Vector3(-90, 0, 90);
     }
 
     public void StartGrabAnimation()
