@@ -6,7 +6,7 @@ public class LevelSelect_Object : MonoBehaviour
 {
     public int level_Scene_Index;
 
-    public GameObject door;
+    public GameObject unlockedVisualGameObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +23,11 @@ public class LevelSelect_Object : MonoBehaviour
     {
         if(state)
         {
-            door.SetActive(false);
+            unlockedVisualGameObject.SetActive(true);
         }
         else
         {
-            door.SetActive(true);
+            unlockedVisualGameObject.SetActive(false);
         }
     }
 

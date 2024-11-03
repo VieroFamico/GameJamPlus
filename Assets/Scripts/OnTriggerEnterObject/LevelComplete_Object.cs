@@ -20,9 +20,22 @@ public class LevelComplete_Object : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        UnlockNewLevel();
+        if (other.GetComponent<Player_Entity>())
+        {
+            UnlockNewLevel();
 
+            if(Game_Manager.instance.CurrentLevel() < Game_Manager.instance.maxLevel)
+            {
+                Game_Manager.instance.level_Select_Manager.LoadScene(Game_Manager.instance.CurrentLevel() + 1);
+                return;
+            }
+            else
+            {
+                Game_Manager.instance.level_Select_Manager.LoadScene(0);
+            }
+        }
     }
+
     public void UnlockNewLevel()
     {
         Game_Manager.instance.SaveNewUnlockedLevel(level + 1);

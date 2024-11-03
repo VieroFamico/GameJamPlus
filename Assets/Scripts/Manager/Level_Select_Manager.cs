@@ -22,6 +22,9 @@ public class Level_Select_Manager : MonoBehaviour
             Debug.Log("Trying to load an out of index scene");
             return;
         }
+
+        Game_Manager.instance.ChangeCurrLevel(targetScene);
+
         StartCoroutine(LoadSceneCoroutine(targetScene));
     }
 
