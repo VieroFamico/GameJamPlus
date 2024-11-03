@@ -23,11 +23,11 @@ public class LevelSelect_Object : MonoBehaviour
     {
         if(state)
         {
-            door.SetActive(true);
+            door.SetActive(false);
         }
         else
         {
-
+            door.SetActive(true);
         }
     }
 

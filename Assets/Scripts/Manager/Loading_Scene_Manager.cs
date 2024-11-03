@@ -20,8 +20,6 @@ public class Loading_Scene_Manager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        animator = GetComponent<Animator>();
     }
 
     public void LoadIn()
