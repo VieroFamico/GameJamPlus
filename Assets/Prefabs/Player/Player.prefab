@@ -472,7 +472,7 @@ MonoBehaviour:
   pushDistance: 0.3
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 1472
 --- !u!1 &3534939193482680919
 GameObject:
   m_ObjectHideFlags: 0
