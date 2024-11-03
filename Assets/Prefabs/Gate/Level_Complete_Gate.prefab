@@ -66,4 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42cfbbff7b772c645a30cb498f5911be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 3
+  nextLevelAudioClip: {fileID: 8300000, guid: eff8b438b8c123d4683a928254fa01a6, type: 3}
+  nextLevelVFX: {fileID: 6445184464140809751, guid: 89af0ee59a926394896075c45a0d57ae,
+    type: 3}
