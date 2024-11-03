@@ -234,6 +234,7 @@ MonoBehaviour:
     holdRotation: {x: 0, y: 0, z: 0}
   destroyedParticleSystem: {fileID: 6506968642493448262, guid: e2b2579127195e84f964a8b556d29967,
     type: 3}
+  interactedAudioClip: {fileID: 8300000, guid: eac13c987388f0545b4c9a84138eaf36, type: 3}
   destroyAudioClip: {fileID: 8300000, guid: ed4f0ab33964b7d4d8c2247e41120731, type: 3}
   isHeld: 0
 --- !u!1001 &3889842177135906383
