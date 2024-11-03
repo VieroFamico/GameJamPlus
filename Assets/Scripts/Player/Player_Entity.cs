@@ -10,6 +10,7 @@ public class Player_Entity : MonoBehaviour
     public Player_State_Manager Player_State_Manager;
     public Player_Animation_Manager Player_Animation_Manager;
 
+    public AudioClip playerDeathAudioClip;
     private void Awake()
     {
         if(instance == null)
@@ -34,5 +35,12 @@ public class Player_Entity : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Death()
+    {
+        Audio_Manager.instance.PlaySFXOneShot(playerDeathAudioClip);
+
+        Game_Manager.instance.level_Select_Manager.LoadScene(Game_Manager.instance.CurrentLevel());
     }
 }
