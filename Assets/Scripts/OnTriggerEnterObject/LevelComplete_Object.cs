@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelComplete_Script : MonoBehaviour
+public class LevelComplete_Object : MonoBehaviour
 {
+    public int level;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class LevelComplete_Script : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UnlockNewLevel()
+    {
+        Game_Manager.instance.SaveNewUnlockedLevel(level + 1);
     }
 }

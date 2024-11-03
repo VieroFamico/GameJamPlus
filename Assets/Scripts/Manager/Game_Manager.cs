@@ -34,7 +34,7 @@ public class Game_Manager : MonoBehaviour
     {
         unlockedLevel = PlayerPrefs.GetInt(levelUnlockedParameter, 1);
 
-        currentLevel = 0;
+        currentLevel = 0; // 0 = Main Menu Stage
     }
 
     // Update is called once per frame
@@ -47,5 +47,20 @@ public class Game_Manager : MonoBehaviour
     public void ChangeCurrLevel(int level)
     {
         currentLevel = level;
+    }
+
+    private void OnApplicationQuit()
+    {
+        
+    }
+
+    public void SaveNewUnlockedLevel(int newLevel)
+    {
+        if(unlockedLevel <= newLevel)
+        {
+            return;
+        }
+
+        PlayerPrefs.SetInt(levelUnlockedParameter, newLevel);
     }
 }
