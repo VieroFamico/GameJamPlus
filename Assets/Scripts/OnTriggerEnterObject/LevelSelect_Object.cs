@@ -8,6 +8,7 @@ public class LevelSelect_Object : MonoBehaviour
 
     public GameObject unlockedVisualGameObject;
 
+    private bool unlocked;
     private float timer = 0;
     // Start is called before the first frame update
     void Start()
@@ -26,15 +27,22 @@ public class LevelSelect_Object : MonoBehaviour
         if(state)
         {
             unlockedVisualGameObject.SetActive(true);
+            unlocked = true;
         }
         else
         {
             unlockedVisualGameObject.SetActive(false);
+            unlocked = false;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!unlocked)
+        {
+            return;
+        }
+
         if(timer < 3f)
         {
             return;

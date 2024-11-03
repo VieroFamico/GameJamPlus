@@ -13,7 +13,9 @@ public class LevelIndex_Assigner : MonoBehaviour
         {
             levelSelect.level_Scene_Index = i;
 
-            if(i <= Game_Manager.instance.UnlockedLevel() + 1)
+            Debug.Log(i);
+
+            if (i <= Game_Manager.instance.UnlockedLevel())
             {
                 Debug.Log("Unlock");
                 levelSelect.Unlocked(true);

@@ -1965,16 +1965,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1716461220}
     m_Modifications:
-    - target: {fileID: 1085364209623979316, guid: 4d1a1f15083453046b076007b511fc9d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1101677631553692569, guid: 4d1a1f15083453046b076007b511fc9d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 2220031628331326929, guid: 4d1a1f15083453046b076007b511fc9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2029,21 +2019,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level_Select_Gate
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042356009082841971, guid: 4d1a1f15083453046b076007b511fc9d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 8148933413063471187, guid: 4d1a1f15083453046b076007b511fc9d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200538660654550502, guid: 4d1a1f15083453046b076007b511fc9d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

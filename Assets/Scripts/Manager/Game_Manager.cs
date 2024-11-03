@@ -65,12 +65,13 @@ public class Game_Manager : MonoBehaviour
 
     public void SaveNewUnlockedLevel(int newLevel)
     {
-        if(unlockedLevel <= newLevel)
+        if(newLevel <= unlockedLevel)
         {
             return;
         }
 
         PlayerPrefs.SetInt(levelUnlockedParameter, newLevel);
+        PlayerPrefs.Save();
 
         unlockedLevel = PlayerPrefs.GetInt(levelUnlockedParameter, newLevel);
     }
@@ -79,6 +80,7 @@ public class Game_Manager : MonoBehaviour
 
     public int UnlockedLevel()
     {
+        Debug.Log(unlockedLevel);
         return unlockedLevel;
     }
 

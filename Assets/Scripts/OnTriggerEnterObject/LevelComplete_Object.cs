@@ -7,6 +7,8 @@ public class LevelComplete_Object : MonoBehaviour
     public int level;
     public AudioClip nextLevelAudioClip;
     public GameObject nextLevelVFX;
+
+    private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,13 +18,18 @@ public class LevelComplete_Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Player_Entity>())
         {
+            if (timer < 3f)
+            {
+                return;
+            }
+
             UnlockNewLevel();
 
             Instantiate(nextLevelVFX, other.transform.position, Quaternion.identity);
@@ -37,6 +44,8 @@ public class LevelComplete_Object : MonoBehaviour
             {
                 Game_Manager.instance.loading_Scene_Manager.LoadScene(0);
             }
+
+            timer = 0;
         }
     }
 
