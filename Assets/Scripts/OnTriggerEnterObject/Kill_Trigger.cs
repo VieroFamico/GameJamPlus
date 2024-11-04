@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Kill_Trigger : MonoBehaviour
 {
-
+    private float timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,11 +14,18 @@ public class Kill_Trigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (timer < 2f)
+        {
+            return;
+        }
+
+        timer = 0;
+
         Player_Entity player_Entity = other.GetComponent<Player_Entity>();
 
         if (player_Entity)
