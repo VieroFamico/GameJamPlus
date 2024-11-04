@@ -30,6 +30,8 @@ public class LevelComplete_Object : MonoBehaviour
                 return;
             }
 
+            timer = 0;
+
             UnlockNewLevel();
 
             Instantiate(nextLevelVFX, other.transform.position, Quaternion.identity);
@@ -44,8 +46,6 @@ public class LevelComplete_Object : MonoBehaviour
             {
                 Game_Manager.instance.loading_Scene_Manager.LoadScene(0);
             }
-
-            timer = 0;
         }
     }
 
